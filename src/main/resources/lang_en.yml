@@ -1,0 +1,10 @@
+registration:
+  name_taken: '&cYou already have registered this username!'
+  success: '&2Successfully registered!'
+
+password:
+  match_error: '&cPasswords didn''t match, check them again!'
+  name_in_password: '&cYou can''t use your name as password, please choose another one...'
+  unsafe_password: '&cThe chosen password isn''t safe, please choose another one...'
+  forbidden_characters: '&cYour password contains illegal characters.'
+  wrong_length: '&cYour password is too short or too long! Please try with another one!'

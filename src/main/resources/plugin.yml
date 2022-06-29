@@ -1,0 +1,7 @@
+name: AuthWeb
+version: '${project.version}'
+main: online.nasgar.authweb.Main
+api-version: 1.13
+prefix: AuthWeb
+authors: [ Vicen621 ]
+description: Auth command for logging into Nasgar Network web site
