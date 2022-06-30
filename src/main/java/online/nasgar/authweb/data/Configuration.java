@@ -18,7 +18,7 @@ public class Configuration extends BukkitYamlConfiguration {
     @Comment({"", "Regex for invaild characters in the password"})
     private String passwordRegex = "[!-~]*";
     @Comment({"", "Passwords that could not be used due to their insecurity problems"})
-    private Set<String> unsafePasswords = new HashSet<String>() {{
+    private List<String> unsafePasswords = new ArrayList<>() {{
         add("123456");
         add("password");
         add("qwerty");
@@ -31,6 +31,8 @@ public class Configuration extends BukkitYamlConfiguration {
     private int minLength = 5;
     @Comment({"", "Maximum allowd password length"})
     private int maxLength = 30;
+    @Comment({"", "URL where the Post Request has to be send"})
+    private String url = "http://127.0.0.1/";
 
     public Configuration() {
         super(
