@@ -60,6 +60,7 @@ public class WebCommands extends BaseCommand {
 
                     OutputStream stream = http.getOutputStream();
                     stream.write(out);
+                    http.getResponseCode();
                     http.disconnect();
                 } catch (IOException e) {
                     throw new RuntimeException(e);
