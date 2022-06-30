@@ -2,13 +2,14 @@ package online.nasgar.authweb.utils;
 
 import online.nasgar.authweb.Main;
 
+import java.util.List;
 import java.util.Set;
 import java.util.regex.Pattern;
 
 public class Utils {
 
     private static Pattern passwordRegex;
-    private static Set<String> unsafePasswords;
+    private static List<String> unsafePasswords;
 
     public static void init() {
         passwordRegex = safePatternCompile(Main.getConfiguration().getPasswordRegex());
