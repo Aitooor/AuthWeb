@@ -24,7 +24,8 @@ public class WebCommands extends BaseCommand {
 
     //TODO: Poner el uso en los dos idiomas
     @Default
-    public void web(Player sender, String password, @Name("confirmPassword") String confirmation) {
+    @Syntax("{@@registration.usage}")
+    public void web(Player sender, String password, String confirmation) {
         if (Main.getPlayerData().containsPlayer(sender.getUniqueId())) {
             Main.getMessageHandler().send(sender, "registration.name_taken");
             return;
