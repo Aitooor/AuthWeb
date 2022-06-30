@@ -49,14 +49,6 @@
                             <pattern>de.exlll.configlib</pattern>
                             <shadedPattern>online.nasgar.libs.configlib</shadedPattern>
                         </relocation>
-                        <relocation>
-                            <pattern>org.apache.commons.logging</pattern>
-                            <shadedPattern>online.nasgar.libs.logging</shadedPattern>
-                        </relocation>
-                        <relocation>
-                            <pattern>org.apache.commons.logging.impl</pattern>
-                            <shadedPattern>online.nasgar.libs.logging.impl</shadedPattern>
-                        </relocation>
                     </relocations>
                 </configuration>
                 <executions>
@@ -120,9 +112,9 @@
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpclient</artifactId>
-            <version>4.5.13</version>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.13.2</version>
         </dependency>
         <dependency>
             <groupId>me.yushust.message</groupId>
@@ -138,11 +130,6 @@
             <groupId>net.silthus.configlib</groupId>
             <artifactId>configlib-bukkit</artifactId>
             <version>2.6.0</version>
-        </dependency>
-        <dependency>
-            <groupId>commons-logging</groupId>
-            <artifactId>commons-logging</artifactId>
-            <version>1.2</version>
         </dependency>
     </dependencies>
 </project>
