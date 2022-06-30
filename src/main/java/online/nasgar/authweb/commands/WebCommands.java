@@ -22,7 +22,6 @@ import java.util.HashMap;
 @CommandAlias("web")
 public class WebCommands extends BaseCommand {
 
-    //TODO: Poner el uso en los dos idiomas
     @Default
     @Syntax("{@@registration.usage}")
     public void web(Player sender, String password, String confirmation) {

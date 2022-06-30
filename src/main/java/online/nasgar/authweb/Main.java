@@ -52,19 +52,6 @@ public final class Main extends JavaPlugin {
         playerData.save();
     }
 
-    private void commands() {
-        cmdManager = new PaperCommandManager(getInstance());
-        cmdManager.enableUnstableAPI("help");
-
-        cmdManager.setFormat(MessageType.HELP, ChatColor.DARK_AQUA, ChatColor.AQUA, ChatColor.GRAY, ChatColor.DARK_GRAY);
-        cmdManager.setFormat(MessageType.SYNTAX, ChatColor.DARK_AQUA, ChatColor.AQUA, ChatColor.GRAY, ChatColor.DARK_GRAY);
-        cmdManager.setFormat(MessageType.INFO, ChatColor.DARK_AQUA, ChatColor.AQUA, ChatColor.GRAY, ChatColor.DARK_GRAY);
-
-        loadCommandLocales(cmdManager);
-
-        cmdManager.registerCommand(new WebCommands());
-    }
-
     private void messages() {
         MessageProvider messageProvider = MessageProvider
                 .create(
@@ -86,6 +73,19 @@ public final class Main extends JavaPlugin {
                 );
 
         messageHandler = MessageHandler.of(messageProvider);
+    }
+
+    private void commands() {
+        cmdManager = new PaperCommandManager(getInstance());
+        cmdManager.enableUnstableAPI("help");
+
+        cmdManager.setFormat(MessageType.HELP, ChatColor.DARK_AQUA, ChatColor.AQUA, ChatColor.GRAY, ChatColor.DARK_GRAY);
+        cmdManager.setFormat(MessageType.SYNTAX, ChatColor.DARK_AQUA, ChatColor.AQUA, ChatColor.GRAY, ChatColor.DARK_GRAY);
+        cmdManager.setFormat(MessageType.INFO, ChatColor.DARK_AQUA, ChatColor.AQUA, ChatColor.GRAY, ChatColor.DARK_GRAY);
+
+        loadCommandLocales(cmdManager);
+
+        cmdManager.registerCommand(new WebCommands());
     }
 
     private void loadCommandLocales(PaperCommandManager commandManager) {
