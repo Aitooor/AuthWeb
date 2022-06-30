@@ -3,7 +3,6 @@ package online.nasgar.authweb.utils;
 import online.nasgar.authweb.Main;
 
 import java.util.List;
-import java.util.Set;
 import java.util.regex.Pattern;
 
 public class Utils {
@@ -35,7 +34,6 @@ public class Utils {
      * Compile Pattern sneaky without throwing Exception.
      *
      * @param pattern pattern string to compile
-     *
      * @return the given regex compiled into Pattern object.
      */
     public static Pattern safePatternCompile(String pattern) {

@@ -1,7 +1,9 @@
 package online.nasgar.authweb.commands;
 
 import co.aikar.commands.BaseCommand;
-import co.aikar.commands.annotation.*;
+import co.aikar.commands.annotation.CommandAlias;
+import co.aikar.commands.annotation.Default;
+import co.aikar.commands.annotation.Name;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import online.nasgar.authweb.Main;
 import online.nasgar.authweb.utils.Utils;

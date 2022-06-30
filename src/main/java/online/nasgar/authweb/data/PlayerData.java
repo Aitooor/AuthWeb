@@ -33,7 +33,8 @@ public class PlayerData {
         }
 
         try (Reader reader = new FileReader(file)) {
-            registeredPlayers = gson.fromJson(reader, new TypeToken<Set<UUID>>(){}.getType());
+            registeredPlayers = gson.fromJson(reader, new TypeToken<Set<UUID>>() {
+            }.getType());
             if (registeredPlayers == null)
                 registeredPlayers = new HashSet<>();
         } catch (IOException e) {

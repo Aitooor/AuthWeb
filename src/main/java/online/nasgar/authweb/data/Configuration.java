@@ -8,9 +8,7 @@ import online.nasgar.authweb.Main;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Getter
 public class Configuration extends BukkitYamlConfiguration {
