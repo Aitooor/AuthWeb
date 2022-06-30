@@ -35,6 +35,7 @@ public final class Main extends JavaPlugin {
         instance = this;
         playerData = new PlayerData();
         configuration = new Configuration();
+        configuration.loadAndSave();
         Utils.init();
         messages();
         commands();
