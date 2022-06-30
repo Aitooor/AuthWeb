@@ -2,21 +2,19 @@ package online.nasgar.authweb.commands;
 
 import co.aikar.commands.BaseCommand;
 import co.aikar.commands.annotation.*;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import online.nasgar.authweb.Main;
 import online.nasgar.authweb.utils.Utils;
 import online.nasgar.authweb.utils.ValidationResult;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.HttpClients;
-import org.apache.http.message.BasicNameValuePair;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
 
 @CommandAlias("web")
 public class WebCommands extends BaseCommand {
@@ -44,17 +42,23 @@ public class WebCommands extends BaseCommand {
             @Override
             public void run() {
                 try {
-                    //TODO: ver porque no funciona en spigot 1.8.8 pero si en el resto
-                    HttpClient httpclient = HttpClients.createDefault();
-                    HttpPost httppost = new HttpPost("https://62bb8a51eff39ad5ee10f8a7.mockapi.io/Store/users");
+                    var values = new HashMap<String, String>() {{
+                        put("uuid", sender.getUniqueId() + "");
+                        put("username", sender.getName());
+                        put("password", password);
+                    }};
 
-                    List<NameValuePair> params = new ArrayList<>(3);
-                    params.add(new BasicNameValuePair("uuid", sender.getUniqueId() + ""));
-                    params.add(new BasicNameValuePair("username", sender.getName()));
-                    params.add(new BasicNameValuePair("password", password));
+                    byte[] out = new ObjectMapper().writeValueAsString(values).getBytes(StandardCharsets.UTF_8);
 
-                    httppost.setEntity(new UrlEncodedFormEntity(params, "UTF-8"));
-                    httpclient.execute(httppost);
+                    URL url = new URL(Main.getConfiguration().getUrl());
+                    HttpURLConnection http = (HttpURLConnection) url.openConnection();
+                    http.setRequestMethod("POST");
+                    http.setDoOutput(true);
+                    http.setRequestProperty("Content-Type", "application/json");
+
+                    OutputStream stream = http.getOutputStream();
+                    stream.write(out);
+                    http.disconnect();
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
@@ -63,12 +67,5 @@ public class WebCommands extends BaseCommand {
 
         Main.getPlayerData().addPlayer(sender.getUniqueId());
         Main.getMessageHandler().send(sender, "registration.success");
-    }
-
-    //TODO: Sacar este comando para producción
-    @Subcommand("test")
-    @CommandPermission("authweb.command.test")
-    public void test(Player sender) {
-        Main.getPlayerData().getRegisteredPlayers().remove(sender.getUniqueId());
     }
 }
