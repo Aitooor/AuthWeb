@@ -1,6 +1,7 @@
 registration:
   name_taken: '&cYou already have registered this username!'
   success: '&2Successfully registered!'
+  usage: '<password> <confirm password>'
 
 password:
   match_error: '&cPasswords didn''t match, check them again!'

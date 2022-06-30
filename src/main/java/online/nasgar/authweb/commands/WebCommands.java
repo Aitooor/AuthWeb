@@ -4,6 +4,7 @@ import co.aikar.commands.BaseCommand;
 import co.aikar.commands.annotation.CommandAlias;
 import co.aikar.commands.annotation.Default;
 import co.aikar.commands.annotation.Name;
+import co.aikar.commands.annotation.Syntax;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import online.nasgar.authweb.Main;
 import online.nasgar.authweb.utils.Utils;
@@ -21,6 +22,7 @@ import java.util.HashMap;
 @CommandAlias("web")
 public class WebCommands extends BaseCommand {
 
+    //TODO: Poner el uso en los dos idiomas
     @Default
     public void web(Player sender, String password, @Name("confirmPassword") String confirmation) {
         if (Main.getPlayerData().containsPlayer(sender.getUniqueId())) {

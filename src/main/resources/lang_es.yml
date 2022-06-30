@@ -1,6 +1,7 @@
 registration:
   name_taken: '&cUsuario ya registrado'
   success: '&2Registrado correctamente!'
+  usage: '<contraseña> <confirmar contraseña>'
 
 password:
   match_error: '&cLas contraseñas no son iguales'

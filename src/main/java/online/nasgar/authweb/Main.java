@@ -1,5 +1,6 @@
 package online.nasgar.authweb;
 
+import co.aikar.commands.Locales;
 import co.aikar.commands.MessageType;
 import co.aikar.commands.PaperCommandManager;
 import lombok.Getter;
@@ -13,8 +14,12 @@ import online.nasgar.authweb.data.PlayerData;
 import online.nasgar.authweb.utils.Utils;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.io.IOException;
+import java.util.Locale;
 
 public final class Main extends JavaPlugin {
 
@@ -54,6 +59,9 @@ public final class Main extends JavaPlugin {
         cmdManager.setFormat(MessageType.HELP, ChatColor.DARK_AQUA, ChatColor.AQUA, ChatColor.GRAY, ChatColor.DARK_GRAY);
         cmdManager.setFormat(MessageType.SYNTAX, ChatColor.DARK_AQUA, ChatColor.AQUA, ChatColor.GRAY, ChatColor.DARK_GRAY);
         cmdManager.setFormat(MessageType.INFO, ChatColor.DARK_AQUA, ChatColor.AQUA, ChatColor.GRAY, ChatColor.DARK_GRAY);
+
+        loadCommandLocales(cmdManager);
+
         cmdManager.registerCommand(new WebCommands());
     }
 
@@ -78,5 +86,20 @@ public final class Main extends JavaPlugin {
                 );
 
         messageHandler = MessageHandler.of(messageProvider);
+    }
+
+    private void loadCommandLocales(PaperCommandManager commandManager) {
+        try {
+            saveResource("lang_en.yml", true);
+            saveResource("lang_es.yml", true);
+            commandManager.getLocales().setDefaultLocale(Locale.ENGLISH);
+            commandManager.getLocales().loadYamlLanguageFile("lang_en.yml", Locale.ENGLISH);
+            commandManager.getLocales().loadYamlLanguageFile("lang_es.yml", Locales.SPANISH);
+            // this will detect the client locale and use it where possible
+            commandManager.usePerIssuerLocale(true);
+        } catch (IOException | InvalidConfigurationException e) {
+            getLogger().severe("Failed to load language config 'lang_en.yml': " + e.getMessage());
+            e.printStackTrace();
+        }
     }
 }
