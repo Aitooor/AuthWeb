@@ -3,8 +3,8 @@ registration:
   success: '&2Registrado correctamente!'
 
 password:
-  match_error: '&cLas contrase\u00F1as no son iguales'
-  name_in_password: '&cNo puedes utilizar tu nombre como contrase\u00F1a. Por favor, elija otra...'
-  unsafe_password: '&cLa contrase\u00F1a elegida no es segura, por favor elija otra...'
-  forbidden_characters: '&cTu contrase\u00F1a tiene caracteres no admitidos.'
-  wrong_length: '&cTu contrase\u00F1a es muy larga o muy corta'
+  match_error: '&cLas contraseñas no son iguales'
+  name_in_password: '&cNo puedes utilizar tu nombre como contraseña. Por favor, elija otra...'
+  unsafe_password: '&cLa contraseña elegida no es segura, por favor elija otra...'
+  forbidden_characters: '&cTu contraseña tiene caracteres no admitidos.'
+  wrong_length: '&cTu contraseña es muy larga o muy corta'
