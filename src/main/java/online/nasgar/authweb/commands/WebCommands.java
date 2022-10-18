@@ -46,7 +46,7 @@ public class WebCommands extends BaseCommand {
             @Override
             public void run() {
                 try {
-                    var values = new HashMap<String, String>() {{
+                    HashMap<String, String> values = new HashMap<String, String>() {{
                         put("uuid", sender.getUniqueId() + "");
                         put("username", sender.getName());
                         put("password", password);

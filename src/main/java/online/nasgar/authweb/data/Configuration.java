@@ -16,7 +16,7 @@ public class Configuration extends BukkitYamlConfiguration {
     @Comment({"", "Regex for invaild characters in the password"})
     private String passwordRegex = "[!-~]*";
     @Comment({"", "Passwords that could not be used due to their insecurity problems"})
-    private List<String> unsafePasswords = new ArrayList<>() {{
+    private List<String> unsafePasswords = new ArrayList<String>() {{
         add("123456");
         add("password");
         add("qwerty");
