@@ -1,10 +1,15 @@
 registration:
   name_taken: '&cUsuario ya registrado'
-  success: '&2Registrado correctamente!'
+  success: '&aRegistrado correctamente!'
   usage: '<contraseña> <confirmar contraseña>'
+changepassword:
+  no_registered: '&cEl usuario debe estar registrado usa /web'
+  success: '&a¡Contraseña cambiada correctamente!'
+  usage: '<vieja> <nueva> <confirmar nueva>'
 
 password:
-  match_error: '&cLas contraseñas no son iguales'
+  no_match_error: '&c¡Las contraseñas no son iguales!'
+  match_error: '&c¡Las contraseñas no pueden ser iguales!'
   name_in_password: '&cNo puedes utilizar tu nombre como contraseña. Por favor, elija otra...'
   unsafe_password: '&cLa contraseña elegida no es segura, por favor elija otra...'
   forbidden_characters: '&cTu contraseña tiene caracteres no admitidos.'
