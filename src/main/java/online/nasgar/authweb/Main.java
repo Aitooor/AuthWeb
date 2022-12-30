@@ -8,6 +8,7 @@ import me.yushust.message.MessageHandler;
 import me.yushust.message.MessageProvider;
 import me.yushust.message.bukkit.BukkitMessageAdapt;
 import me.yushust.message.source.MessageSourceDecorator;
+import online.nasgar.authweb.commands.ChangePasswordCommands;
 import online.nasgar.authweb.commands.WebCommands;
 import online.nasgar.authweb.data.Configuration;
 import online.nasgar.authweb.data.PlayerData;
@@ -86,6 +87,7 @@ public final class Main extends JavaPlugin {
         loadCommandLocales(cmdManager);
 
         cmdManager.registerCommand(new WebCommands());
+        cmdManager.registerCommand(new ChangePasswordCommands());
     }
 
     private void loadCommandLocales(PaperCommandManager commandManager) {
